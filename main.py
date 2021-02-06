@@ -2,7 +2,7 @@ import pygame # 2D Graphics Library
 import os
 pygame.font.init()
 
-WIDTH, HEIGHT = 900, 500
+WIDTH, HEIGHT = 1280, 720
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 
@@ -103,13 +103,15 @@ def handle_bullets(yellow_bullets, red_bullets, yellow, red):
 
 def draw_winner(text):
 	draw_text = WINNER_FONT.render(text, 1, WHITE)
-	WIN.BLIT(draw_text, (WIDTH//2 - draw_text.get_width()//2, HEIGHT//2 - draw_text.get_height()//2))
+	WIN.blit(draw_text, (WIDTH//2 - draw_text.get_width()//2, HEIGHT//2 - draw_text.get_height()//2))
 	pygame.display.update()
 	pygame.time.delay(5000)
 
 def main():
-	red = pygame.Rect(700, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
-	yellow = pygame.Rect(100, 300, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
+
+	yellow = pygame.Rect(WIDTH//2 - WIDTH//4, HEIGHT//2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
+	red = pygame.Rect(WIDTH//2 + WIDTH//4, HEIGHT//2, SPACESHIP_WIDTH, SPACESHIP_HEIGHT)
+
 
 	red_bullets = []
 	yellow_bullets = []
